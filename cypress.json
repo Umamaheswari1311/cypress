@@ -2,7 +2,37 @@
   "defaultCommandTimeout": 6000,
   "env": {
     "url": "https://demoqa.com"
-  },
+         },
   "chromeWebSecurity": false,
-  "projectId": "bzxnvd"
-}
+  "projectId": "bzxnvd",
+   "video":false,
+   "screenshotOnRunFailure":true,
+   
+  "db": {
+    "userName": "umaQA1311",
+    "password": "Sanuma@2017",
+    "server": "uma.database.windows.net",
+    "options": {
+        "database": "dbconnection",
+        "encrypt": true,
+        "rowCollectionOnRequestCompletion" : true
+    }
+    
+    },
+  
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "reporterEnabled": "mochawesome",
+        "mochawesomeReporterOptions": {
+            "reportDir": "cypress/reports/mocha",
+            "quite": true,
+            "overwrite": false,
+            "html": false,
+            "json": true
+        }
+    }
+} 
+
+
+    
+
