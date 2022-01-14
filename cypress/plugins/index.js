@@ -11,13 +11,19 @@
 
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
-const sqlServer = require('cypress-sql-server');
+
 /**
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
+const sqlServer = require('cypress-sql-server');
+
 const dbConfig = require('../../cypress.json');
 module.exports = (on, config) => {
   tasks = sqlServer.loadDBPlugin(dbConfig.db);
   on('task', tasks);
+}
+const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
+module.exports = (on, config) => {
+  on('task', {downloadFile})
 }

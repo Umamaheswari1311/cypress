@@ -1,13 +1,12 @@
   {
+  "$schema": "https://on.cypress.io/cypress.schema.json",
   "defaultCommandTimeout": 6000,
   "env": {
     "url": "https://demoqa.com"
          },
   "chromeWebSecurity": false,
   "projectId": "bzxnvd",
-   "video":false,
-   "screenshotOnRunFailure":true,
-   
+  "experimentalShadowDomSupport": true,
   "db": {
     "userName": "umaQA1311",
     "password": "Sanuma@2017",
@@ -30,7 +29,10 @@
             "html": false,
             "json": true
         }
-    }
+    },
+    "video": false,
+    "screenshotOnRunFailure":true,
+    "screenshotsFolder": "cypress/reports/mochareports/assets"
 } 
 
 
