@@ -16,12 +16,11 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import addContext from "mochawesome/addContext";
-
+import 'cypress-xpath';
+import sqlServer from 'cypress-sql-server';
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-require('cypress-xpath')
 
-import sqlServer from 'cypress-sql-server';
 sqlServer.loadDBCommands();
 
 Cypress.on("test:after:run", (test, runnable) => {  

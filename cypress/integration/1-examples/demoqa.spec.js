@@ -8,15 +8,31 @@ beforeEach(() => {
     cy.get("img").should('have.length',3)
     
     })
-      
-   
-      
+          
      /* it('Texbox',() => {
+
          cy.get("svg[viewBox*='0 0 448 512'] > path").click()
       cy.get('span').contains('Text Box').click()
       cy.get('#userName').type("uma@gmail.com")
         }) */
-  
+
+     it('firstWithinElement',() => {
+        cy.get("svg[viewBox='0 0 24 24']").first().click()
+        cy.get("span").contains('Practice').click()
+        cy.get("#userName-wrapper").within(div =>
+        {
+            cy.get('input').first().type('uma')
+            cy.get('input').last().type('K')
+        })
+    })
+
+    it.only('RadioButton',() => {
+        cy.get("svg[viewBox='0 0 24 24']").first().click()
+        cy.contains('span','Practice').click()
+        cy.get("label:contains('Female')").prev().check({force: true}).should('be.checked')
+      
+    })
+
     /* it('Checkbox',() => {
         cy.get("svg[viewBox*='0 0 448 512'] > path").click()
         cy.get('span').contains('Check Box').click()
@@ -32,6 +48,39 @@ beforeEach(() => {
        cy.get("input[type*=checkbox]").uncheck({ force: true }).should('not.be.checked')
  
     }) */
+
+    it('Traversebackward',() => {
+        cy.get("svg[viewBox='0 0 24 24']").first().click()
+        cy.get("span").contains('Practice').click()
+        cy.get("#userForm").children().find(':checkbox').check({multiple:true,force: true})
+        cy.get(':checkbox').parent().prev().find('label').first().should('have.text','Sports')
+        cy.get(':checkbox').parent().prev().find('label').last().should('have.text','Reading')
+    })
+    it('siblings',() => {
+        cy.get("svg").eq(4).click()
+        cy.get("span").contains('Selectable').click()
+        //Select all
+       //cy.get('#verticalListContainer').children().click({multiple:true})  
+       //Select only sibilings
+       // cy.get('#verticalListContainer').children().eq(1).siblings('li').click({multiple:true})
+       //Select next child
+       //cy.get('#verticalListContainer').children().eq(1).next().click()
+       //Select next all child
+      // cy.get('#verticalListContainer').children().eq(1).nextAll().click({multiple:true})
+       //Slect Previous Child
+       //cy.get('#verticalListContainer').children().eq(3).prev().click()
+         cy.get('#verticalListContainer').children().eq(3).prevAll().click({multiple:true})
+    })
+    
+    
+
+    it('Date Picker',() =>{
+        cy.get("svg[viewBox='0 0 24 24']:last-child>path").click({force: true})
+        cy.get('span').contains('Date').click()
+        cy.get('#datePickerMonthYearInput').clear().type('2022-01-22')
+
+    })
+
    /* it('Auto Complete',()=>{
     cy.get("svg[viewBox='0 0 24 24']:last-child>path").click({force: true})
     cy.get('span').contains('Auto').click()

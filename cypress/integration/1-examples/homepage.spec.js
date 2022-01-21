@@ -11,7 +11,7 @@
     
   describe('HomePage-TestSuite',()=>{
 
-  it('CustomerLogin',() => {
+  it.only('CustomerLogin',() => {
  
     
     cy.get("button[ng-click='customer()']").click()
@@ -59,10 +59,12 @@
      //index
      cy.get('.center').find('button').eq(0).click()
      cy.wait(1000)
-     //find element with contains
+
+
+     //find the element with contains
    cy.get('td>a').contains('Date').click({ force: true })
    cy.get('#anchor0>td:nth-child(2)').should('have.text','200')
-   cy.pause()
+   //cy.pause()
 
    })
 
@@ -73,5 +75,7 @@
 
   it('Bank Manager Login',() => {
     cy.contains('Manager').click()
+    cy.wait(5000)
+    cy.get('.home').click()
     })
  })

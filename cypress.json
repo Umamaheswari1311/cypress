@@ -7,6 +7,8 @@
   "chromeWebSecurity": false,
   "projectId": "bzxnvd",
   "experimentalShadowDomSupport": true,
+  "watchForFileChanges":false,
+   
   "db": {
     "userName": "umaQA1311",
     "password": "Sanuma@2017",
