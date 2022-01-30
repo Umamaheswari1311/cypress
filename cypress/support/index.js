@@ -18,6 +18,8 @@ import './commands'
 import addContext from "mochawesome/addContext";
 import 'cypress-xpath';
 import sqlServer from 'cypress-sql-server';
+
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 

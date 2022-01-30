@@ -30,5 +30,9 @@
     "mochawesome": "^7.0.1",
     "mochawesome-merge": "^4.2.1",
     "mochawesome-report-generator": "^6.0.1"
+  },
+  "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.1.0",
+    "@bahmutov/cy-api": "^1.6.2"
   }
 }

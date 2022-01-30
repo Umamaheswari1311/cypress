@@ -3,7 +3,8 @@ import 'cypress-iframe'
 
 beforeEach(() => {
     //URL Launch
-    cy.visit('https://demoqa.com/')
+        cy.visit(Cypress.env("url")+"/")
+      //get current url  
     cy.url().should('include','demoqa')
     cy.get("img").should('have.length',3)
     
@@ -26,14 +27,16 @@ beforeEach(() => {
         })
     })
 
-    it.only('RadioButton',() => {
+    it('RadioButton',() => {
         cy.get("svg[viewBox='0 0 24 24']").first().click()
+        //Tag with Text
         cy.contains('span','Practice').click()
+        //Another way of using contains
         cy.get("label:contains('Female')").prev().check({force: true}).should('be.checked')
       
     })
 
-    /* it('Checkbox',() => {
+    it('Checkbox',() => {
         cy.get("svg[viewBox*='0 0 448 512'] > path").click()
         cy.get('span').contains('Check Box').click()
        cy.get("button[title='Toggle']").find('path').click({ force: true })
@@ -47,12 +50,13 @@ beforeEach(() => {
        //Uncheck multiple checkboxes
        cy.get("input[type*=checkbox]").uncheck({ force: true }).should('not.be.checked')
  
-    }) */
+    })
 
     it('Traversebackward',() => {
         cy.get("svg[viewBox='0 0 24 24']").first().click()
         cy.get("span").contains('Practice').click()
-        cy.get("#userForm").children().find(':checkbox').check({multiple:true,force: true})
+       // cy.get("#userForm").children().find(':checkbox').check({multiple:true,force: true})
+    //Transverse back
         cy.get(':checkbox').parent().prev().find('label').first().should('have.text','Sports')
         cy.get(':checkbox').parent().prev().find('label').last().should('have.text','Reading')
     })
@@ -60,16 +64,16 @@ beforeEach(() => {
         cy.get("svg").eq(4).click()
         cy.get("span").contains('Selectable').click()
         //Select all
-       //cy.get('#verticalListContainer').children().click({multiple:true})  
+      // cy.get('#verticalListContainer').children().click({multiple:true})  
        //Select only sibilings
        // cy.get('#verticalListContainer').children().eq(1).siblings('li').click({multiple:true})
        //Select next child
        //cy.get('#verticalListContainer').children().eq(1).next().click()
        //Select next all child
-      // cy.get('#verticalListContainer').children().eq(1).nextAll().click({multiple:true})
+       //cy.get('#verticalListContainer').children().eq(1).nextAll().click({multiple:true})
        //Slect Previous Child
-       //cy.get('#verticalListContainer').children().eq(3).prev().click()
-         cy.get('#verticalListContainer').children().eq(3).prevAll().click({multiple:true})
+       // cy.get('#verticalListContainer').children().eq(3).prev().click()
+        //cy.get('#verticalListContainer').children().eq(3).prevAll().click({multiple:true})
     })
     
     
@@ -97,6 +101,7 @@ beforeEach(() => {
     cy.get('#autoCompleteMultipleInput').type('ye').type('{enter}')
     cy.get('#autoCompleteMultipleInput').type('i').type('{pagedown}').type('{pagedown}').type('{pagedown}').type('{enter}')
    }) */
+   
     /* it('Radio buttons',()=>{
         cy.get("svg[viewBox*='0 0 448 512'] > path").click()
         cy.get('span').contains('Radio Button').click()
@@ -105,23 +110,8 @@ beforeEach(() => {
     }) */
    
     
-    
-   /*  it('Alert',function(){
-        cy.get("svg[viewBox*='0 0 14 16']> path").click({force: true})
-        cy.get('li>span').contains('Alerts').click()
-        //Alert
-        cy.get('#alertButton').click()
-        cy.on('window:alert',(str)=>{
-            expect(str).to.equal('You clicked a button')
-        })
-        
-   //Confirm
-   cy.get('#confirmButton').click()
-   cy.on('window:confirm',(txt)=>{
-       expect(txt).to.equal('Do you confirm action?')
-   })
-})*/
-/* it('Naviagtion',function()
+ 
+it.only('Naviagtion',function()
 {
     cy.get("svg[viewBox*='0 0 14 16']> path").click({force: true})
     cy.url().should('include','alert')
@@ -131,7 +121,7 @@ beforeEach(() => {
     cy.url().should('include','alert')
      cy.go(-1)
      cy.reload()
-}) */
+})
 
 /* it('Webtable',()=>{
     cy.get("svg[viewBox*='0 0 448 512'] > path").click()

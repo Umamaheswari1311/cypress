@@ -65,12 +65,9 @@
    cy.get('td>a').contains('Date').click({ force: true })
    cy.get('#anchor0>td:nth-child(2)').should('have.text','200')
    //cy.pause()
-
+   cy.get('#start').clear().type('2021-12-01T08:30')
+  
    })
-
-
-
-   
 
 
   it('Bank Manager Login',() => {
