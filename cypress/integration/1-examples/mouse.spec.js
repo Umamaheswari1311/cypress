@@ -29,11 +29,16 @@ cy.visit('/')
 
 })
 
-specify.only('Mouse Over',{'baseUrl':'https://www.myntra.com'},()=>{
-    cy.visit('/')
-    Cypress.config("responseTimeout", 600000) 
-    cy.get("a[href='/shop/men'][data-index='0']").trigger('mouseover')
-    cy.get("a[href='/men-tshirts']").trigger('mouseover')
+specify('Mouse Over',{'baseUrl':'https://www.myntra.com'},()=>{
+    cy.visit('/',{ headers: { "Accept-Encoding": "gzip, deflate" } })    
+    cy.get("a[href='/shop/men'][data-index='0']").trigger('mouseover',{force: true})
+    cy.get("a[href='/men-tshirts']").click({force: true})
     
+})
+
+specify.only('DoubleClick',{'baseUrl':'https://automationpractice.com'},()=>{
+    cy.visit('/')
+    cy.get("button[ondblclick='myFunction()']")
+    cy.focused().dblclick()
 })
 })

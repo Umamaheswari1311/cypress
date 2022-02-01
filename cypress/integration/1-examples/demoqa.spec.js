@@ -17,7 +17,7 @@ beforeEach(() => {
       cy.get('#userName').type("uma@gmail.com")
         }) */
 
-     it('firstWithinElement',() => {
+     it.only('firstWithinElement',() => {
         cy.get("svg[viewBox='0 0 24 24']").first().click()
         cy.get("span").contains('Practice').click()
         cy.get("#userName-wrapper").within(div =>
@@ -111,7 +111,7 @@ beforeEach(() => {
    
     
  
-it.only('Naviagtion',function()
+it('Naviagtion',function()
 {
     cy.get("svg[viewBox*='0 0 14 16']> path").click({force: true})
     cy.url().should('include','alert')
