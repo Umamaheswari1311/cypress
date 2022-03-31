@@ -2,14 +2,14 @@
 
 import Login  from '../../support/Pages/Login'
 import Profile from '../../support/Pages/Profile'
-
-describe("Bookstores-End to End",function(){
-    before(function(){
-        cy.fixture('register').then(function(data){
-            this.data=data      
-        })
-        cy.visit(Cypress.env("url")+"/login")
+before(function(){
+    cy.fixture('register').then(function(data){
+        this.data=data      
     })
+    cy.visit(Cypress.env("url")+"/login")
+})
+describe("Bookstores-End to End",function(){
+    
     it("Login",function(){
       const login=  new Login()
       const profile =new Profile()
@@ -20,4 +20,13 @@ describe("Bookstores-End to End",function(){
         profile.clickGoToStore()
 
     })
+    //Extend videos for failed Test cases
+    
+afterEach(function(){
+    if(this.currentTest=='failed')
+    {
+        cy.wait(1000)
+    }
+}
+)
 })

@@ -1,18 +1,18 @@
 context('Exxon-ViewPort',function(){
     beforeEach(() => {
-        cy.visit('https://google.com/')
+        cy.visit('https://corporate.exxonmobil.com/')
       })
 
-     /*  it("Height and Width",()=>
+      it("Height and Width",()=>
       {
           cy.document().its('contentType').should('eq', 'text/html')
           //Yield Document Object
           cy.document().then(doc=>
           {
              cy.log(Cypress.$ (doc).height())
-             cy.log(Cypress.$ (doc).width())
+             cy.log(Cypress.$ (doc).with())
           })
-          }) */
+          })
     specify('HomePage-Pixel-320,480',()=>{
         cy.viewport(320, 480)
         cy.get('#onetrust-accept-btn-handler').click()

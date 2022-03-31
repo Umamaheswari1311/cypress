@@ -20,10 +20,16 @@ describe('FileUpload',function(){
             cy.get('#drag-drop-upload').attachFile({filePath:"image.PNG",fileName: 'logo'}, { subjectType: 'drag-n-drop' });
             
         })   
-        it('MultipleFileUpload',()=>{
+        
+
+
+
+
+        //Not working
+        /* it('MultipleFileUpload',()=>{
            
-            y.get('#drag-drop-upload').attachFile(['image.PNG', 'Capture.PNG'],c { subjectType: 'drag-n-drop' });
+            y.get('#drag-drop-upload').attachFile(['image.PNG', 'Capture.PNG'], { subjectType: 'drag-n-drop' });
             
-        })  
+        })   */
            
 })

@@ -1,3 +1,5 @@
+require('cypress-grep')()
+
 
 import "cypress-ntlm-auth/dist/commands";
 import './commands'
@@ -23,7 +25,7 @@ addContext({ test }, screenshot);
   // returning false here prevents Cypress from
   // failing the test
   return false
-})
+}) 
 
 
  /*  Cypress.on("window:before:load",(win)=>
@@ -35,7 +37,7 @@ addContext({ test }, screenshot);
  })
  }) */
 
- const config = {
+/*  const config = {
      excludeMessages: ['foo', '^some bar-regex.*'],
      includeConsoleTypes: [
          consoleType.ERROR,
@@ -44,4 +46,6 @@ addContext({ test }, screenshot);
      ],
  };
  
- failOnConsoleError(config);
+ failOnConsoleError(config); */
+
+ 

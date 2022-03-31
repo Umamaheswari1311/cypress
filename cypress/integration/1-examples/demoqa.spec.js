@@ -8,8 +8,31 @@ beforeEach(() => {
     cy.url().should('include','demoqa')
     cy.get("img").should('have.length',3)
     
+    
     })
-          
+    it('Webtable',()=>{
+    cy.get("svg[viewBox*='0 0 448 512'] > path").click()
+    cy.get('span').contains('Web Tables').click()
+//Static Text finding anywhere from table
+    cy.get('.rt-tbody').contains('div','Vega').should('exist')
+    cy.get('.rt-tbody').contains('div','Vega').should('be.visible')
+//Specific Row and Column value from table
+cy.get('div[role=grid] > div:last-child>div:nth-child(2)>div>div:nth-child(3)').contains('45').should('be.visible')
+//static value to find next dynamic value
+cy.get('div[role=grid] > div:last-child>div:nth-child(2)>div>div:nth-child(3)').next().contains('alden')
+//static value to find prev dynamic value
+cy.get('div[role=grid] > div:last-child>div:nth-child(2)>div>div:nth-child(3)').prev().contains('Cantrell')
+
+}) 
+
+
+
+    //Iteration of column values
+//cy.pause()
+/* cy.get('div[role=grid] > div:last-child div[role=row] >div:first-child').each(($ele,$index,$list)=>{
+if(expect($ele.text()).not.to.be.empty)
+cy.log($ele.text()) 
+})*/      
      /* it('Texbox',() => {
 
          cy.get("svg[viewBox*='0 0 448 512'] > path").click()
@@ -17,7 +40,7 @@ beforeEach(() => {
       cy.get('#userName').type("uma@gmail.com")
         }) */
 
-     it.only('firstWithinElement',() => {
+     it('firstWithinElement',() => {
         cy.get("svg[viewBox='0 0 24 24']").first().click()
         cy.get("span").contains('Practice').click()
         cy.get("#userName-wrapper").within(div =>
@@ -98,11 +121,13 @@ beforeEach(() => {
     })
     cy.get('#autoCompleteMultipleInput').type('bl')
     cy.get('#react-select-2-option-0').contains('Blue').click()
+    
     cy.get('#autoCompleteMultipleInput').type('ye').type('{enter}')
+
     cy.get('#autoCompleteMultipleInput').type('i').type('{pagedown}').type('{pagedown}').type('{pagedown}').type('{enter}')
    }) */
    
-    /* it('Radio buttons',()=>{
+    /* it('Radio button5s',()=>{
         cy.get("svg[viewBox*='0 0 448 512'] > path").click()
         cy.get('span').contains('Radio Button').click()
         cy.get('#yesRadio').check({ force: true }).should('be.checked')
@@ -110,6 +135,7 @@ beforeEach(() => {
     }) */
    
     
+
  
 it('Naviagtion',function()
 {
@@ -123,26 +149,9 @@ it('Naviagtion',function()
      cy.reload()
 })
 
-/* it('Webtable',()=>{
-    cy.get("svg[viewBox*='0 0 448 512'] > path").click()
-    cy.get('span').contains('Web Tables').click()
-//Static Text finding anywhere from table
-    cy.get('.rt-tbody').contains('div','Vega').should('exist')
-    cy.get('.rt-tbody').contains('div','Vega').should('be.visible')
-//Specific Row and Column value from table
-cy.get('div[role=grid] > div:last-child>div:nth-child(2)>div>div:nth-child(3)').contains('45').should('be.visible')
-//static value to find next dynamic value
-cy.get('div[role=grid] > div:last-child>div:nth-child(2)>div>div:nth-child(3)').next().contains('alden')
-//static value to find prev dynamic value
-cy.get('div[role=grid] > div:last-child>div:nth-child(2)>div>div:nth-child(3)').prev().contains('Cantrell')
 
-//Iteration of column values
-//cy.pause()
-cy.get('div[role=grid] > div:last-child div[role=row] >div:first-child').each(($ele,$index,$list)=>{
-if(expect($ele.text()).not.to.be.empty)
-cy.log($ele.text())
-})
-}) */
+
+
 /* it('tooltips',()=>{
     //Invoke jquery text method
     cy.get("svg[viewBox='0 0 24 24']:last-child>path").click({force: true})

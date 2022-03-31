@@ -4,13 +4,7 @@ specify('Simple way',()=>{
     cy.get('p').should('contain.text','Congratulations')
 })
 specify('Alternate',()=>{
-    cy.visit('https://the-internet.herokuapp.com/basic_auth',{auth: {
-        
-                username: 'admin',
-        
-                password: 'admin'
-        
-              }})
+    cy.visit('https://the-internet.herokuapp.com/basic_auth',{auth: {username: 'admin',password: 'admin'}})
     cy.get('p').should('contain.text','Congratulations')
 })
 })

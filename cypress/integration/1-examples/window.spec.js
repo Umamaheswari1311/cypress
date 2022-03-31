@@ -61,7 +61,7 @@ context('Window Command',() =>{
         cy.wait(6000)
         
         //Clear Local storage
-        cy.clearLocalStorage()
+       // cy.clearLocalStorage()
     })
 })
 

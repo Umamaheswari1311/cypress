@@ -8,7 +8,7 @@ describe('Download',function(){
         })
         
         it('Download-TextFile',()=>{
-           cy.downloadFile('https://the-internet.herokuapp.com/download/Appium.txt','cypress/fixtures/Download','Appium_setup.txt')
+           cy.downloadFile('https://the-internet.herokuapp.com/download/','cypress/fixtures/Download','Appium_setup.txt')
            cy.readFile('cypress/fixtures/Download/Appium_setup.txt').should('contains','uiautomator')
         })
     })
